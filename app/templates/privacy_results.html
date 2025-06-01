@@ -1,0 +1,14 @@
+<!-- templates/results.html -->
+{% extends 'base.html' %}
+
+{% block title %}Privacy Advice Results{% endblock %}
+
+{% block content %}
+  <h2>Your Personalized Privacy Tips</h2>
+  <ul>
+    {% for tip in advice %}
+      <li>{{ tip }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('main.privacy_check') }}">Back to form</a>
+{% endblock %}

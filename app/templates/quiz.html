@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Cybersecurity Quiz{% endblock %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Quiz</title>
+</head>
+<body>
+    <h1>Cybersecurity Awareness Quiz</h1>
+    <form method="POST" action="/submit-quiz">
+        {% for q in questions %}
+            <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
+            {% for option in q.options %}
+                <label>
+                    <input type="radio" name="q{{ q.id }}" value="{{ option }}" 
+                    {% if request.form['q' + q.id|string] == option %} checked="checked" {% endif %}>
+                    {{ option }}
+                </label><br>
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

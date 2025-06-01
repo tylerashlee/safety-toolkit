@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Privacy Check{% endblock %}
+
+{% block content %}
+<body>
+    <h1>Privacy Check</h1>
+  <form action="{{ url_for('main.privacy_results') }}" method="post">
+    <p>1. Is your account set to public or private?</p>
+    <select name="visibility">
+      <option>Public</option>
+      <option>Private</option>
+      <option>Not sure</option>
+    </select>
+
+    <p>2. What personal info is in your bio or posts?</p>
+    <label><input type="checkbox" name="address"> Address</label><br>
+    <label><input type="checkbox" name="workplace"> Workplace</label><br>
+    <label><input type="checkbox" name="school"> School</label><br>
+
+    <p>3. Do you tag your current location in posts?</p>
+    <select name="location_sharing">
+      <option>Frequently</option>
+      <option>Sometimes</option>
+      <option>Never</option>
+    </select>
+
+    <p>4. Can others tag you without approval?</p>
+    <select name="tagging">
+      <option>Yes</option>
+      <option>No</option>
+      <option>Not sure</option>
+    </select>
+
+    <p>5. Have you reviewed older posts recently?</p>
+    <select name="old_posts">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <p>6. Is 2FA enabled?</p>
+    <select name="twofa">
+      <option>Yes</option>
+      <option>No</option>
+      <option>Not sure</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Get My Privacy Advice</button>
+  </form>
+{% endblock %}

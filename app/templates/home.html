@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <section class="homepage-section">
+    <!-- Left side: Text container -->
+     <!-- Homepage Banner Image -->
+    <div class="welcome-text">
+      <h1>Welcome to the CyberSafety Toolkit 👩🏽‍💻🔐</h1>
+      <p>Your personal guide to staying secure online. Explore all of the available features below!</p>
+
+      <div class="button-group">
+        <a href="{{ url_for('main.quiz') }}"><button>Take the Cybersecurity Quiz</button></a>
+        <a href="{{ url_for('main.checklist') }}"><button>View Safety Checklist</button></a>
+        <a href="{{ url_for('main.password') }}"><button>Password Strength Guide</button></a>
+        <a href="{{ url_for('main.privacy_check') }}"><button>Check Your Privacy</button></a>
+        <a href="{{ url_for('main.mission') }}"><button>Why This Matters</button></a>
+      </div>
+    </div>
+
+    <!-- Right side: Image -->
+    <div class="banner-image hide-on-mobile">
+      <img src="{{ url_for('static', filename='images/Cyber-Security.jpg') }}" alt="Cybersecurity illustration">
+    </div>
+  </section>
+{% endblock %}
+

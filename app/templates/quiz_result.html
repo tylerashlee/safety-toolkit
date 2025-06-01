@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz Results{% endblock %}
+
+{% block content %}
+    <h1>Your Score: {{ score }} out of {{ total }}</h1>
+
+    {% if score == total %}
+        <p>Excellent! You got a perfect score. 🎉</p>
+    {% elif score >= total * 0.7 %}
+        <p>Nice job! You have a good grasp on cybersecurity basics. ✅</p>
+    {% else %}
+        <p>Keep learning! Review the safety checklist to strengthen your knowledge. 📘</p>
+    {% endif %}
+
+    <a href="{{ url_for('main.quiz') }}">Try Again</a> |
+    <a href="{{ url_for('main.checklist') }}">Go to Safety Checklist</a>
+{% endblock %}
+
